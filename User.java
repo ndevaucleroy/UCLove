@@ -32,6 +32,7 @@ public class User
         this.descriptionStr = descriptionStr;
         this.genderStr = genderStr;
         this.orientationStr = orientationStr;
+        DatabaseHandler.createUser(this);
     }
 
     public User(String loginStr){
