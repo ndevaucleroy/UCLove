@@ -1,26 +1,29 @@
 package lsinf1225.uclove;
 
-
+import java.util.ArrayList;
 /**
- * Write a description of class User here.
  *
- * @author Groupe P
- * @version 25.04.2016
+ *
+ * @author: Groupe P 
+ * @version: 25.04.2016
  */
 public class User
 {
-    // instance variables - replace the example below with your own
+    protected String password;
+    private ArrayList friendsList;
     private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
             hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
+    private Friends friends;
 
     /**
      * Constructor for objects of class User
      */
-    public User(String loginStr, String  firstNameStr, String  nameStr, String  placeStr,
-                   String birthdayStr, String languageStr, String hairStr, String  eyesStr,
-                   String descriptionStr, String genderStr, String  orientationStr)
+    public User(String password, ArrayList friendsList, String loginStr, String  firstNameStr,
+                String  nameStr, String  placeStr, String birthdayStr, String languageStr,
+                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr)
     {
-        // initialise instance variables
+        this.password = password;
+        this.friendsList = friendsList;
         this.loginStr = loginStr;
         this.firstNameStr = firstNameStr;
         this.nameStr = nameStr;
@@ -32,11 +35,15 @@ public class User
         this.descriptionStr = descriptionStr;
         this.genderStr = genderStr;
         this.orientationStr = orientationStr;
+        this.friends = new Friends(this.loginStr, true);
         DatabaseHandler.createUser(this);
     }
 
-    public User(String loginStr){
+    public User(){
+    }
+    public User(String loginStr) {
         this.loginStr = loginStr;
+        this.password = DatabaseHandler.getPassword(loginStr);
         this.firstNameStr = DatabaseHandler.getFisrtNameStr(loginStr);
         this.nameStr = DatabaseHandler.getNameStr(loginStr);
         this.placeStr = DatabaseHandler.getPlaceStr(loginStr);
@@ -47,23 +54,11 @@ public class User
         this.descriptionStr = DatabaseHandler.getDescriptionStr(loginStr);
         this.genderStr = DatabaseHandler.getGenderStr(loginStr);
         this.orientationStr = DatabaseHandler.getOrientation(loginStr);
+        this.friends = new Friends(loginStr, false);
     }
 
-
-    public User(){}
-    
-    
-     public static boolean isLoginAvailable(String username){
+    public static boolean isLoginAvailable(String username){
         return true;
-    }
-
-    public String getLoginStr() {
-        return loginStr;
-    }
-
-    public void setLoginStr(String loginStr){
-    DatabaseHandler.setLoginStr(logintStr, this.loginStr);
-    this.loginStr = loginStr;
     }
 
     public String getFirstNameStr() {
