@@ -1,64 +1,154 @@
 package lsinf1225.uclove;
 
-import java.util.ArrayList;
+
 /**
+ * Write a description of class Profil here.
  *
- *
- * @author: Groupe P 
- * @version: 25.04.2016
+ * @author Groupe P
+ * @version 25.04.2016
  */
-public class User
+public class Profile
 {
-    public String userID;
-    protected String password;
-    private ArrayList friendsList;
-    private Profile profile;
+    // instance variables - replace the example below with your own
+    private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
+            hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
 
     /**
-     * Constructor for objects of class User
+     * Constructor for objects of class Profil
      */
-    public User(String userID, String password, ArrayList friendsList, Profile profile)
+    public Profile(String loginStr, String  firstNameStr, String  nameStr, String  placeStr,
+                   String birthdayStr, String languageStr, String hairStr, String  eyesStr,
+                   String descriptionStr, String genderStr, String  orientationStr)
     {
-        this.userID=userID;
-        this.password = password;
-        this.friendsList = friendsList;
-        this.profile = profile;
+        // initialise instance variables
+        this.loginStr = loginStr;
+        this.firstNameStr = firstNameStr;
+        this.nameStr = nameStr;
+        this.placeStr = placeStr;
+        this.birthdayStr = birthdayStr;
+        this.languageStr = languageStr;
+        this.hairStr = hairStr;
+        this.eyesStr = eyesStr;
+        this.descriptionStr = descriptionStr;
+        this.genderStr = genderStr;
+        this.orientationStr = orientationStr;
     }
 
-    public User(){
+    public Profile(String loginStr){
+        this.loginStr = loginStr;
+        this.firstNameStr = DatabaseHandler.getFisrtNameStr(loginStr);
+        this.nameStr = DatabaseHandler.getNameStr(loginStr);
+        this.placeStr = DatabaseHandler.getPlaceStr(loginStr);
+        this.birthdayStr = DatabaseHandler.getBirthdayStr(loginStr);
+        this.languageStr = DatabaseHandler.getLanguageStr(loginStr);
+        this.hairStr = DatabaseHandler.getHairStr(loginStr);
+        this.eyesStr = DatabaseHandler.getEyesStr(loginStr);
+        this.descriptionStr = DatabaseHandler.getDescriptionStr(loginStr);
+        this.genderStr = DatabaseHandler.getGenderStr(loginStr);
+        this.orientationStr = DatabaseHandler.getOrientation(loginStr);
     }
 
-    public static boolean isLoginAvailable(String username){
-        return true;
+
+    public Profile(){}
+
+
+    public String getLoginStr() {
+        return loginStr;
     }
 
-    public String getUserID() {
-        return userID;
+    public void setLoginStr(String loginStr){
+
+
+
     }
 
-    public String getPassword() {
-        return password;
+    public String getFirstNameStr() {
+        return firstNameStr;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setFirstNameStr(String firstNameStr) {
+        this.firstNameStr = firstNameStr;
+        DatabaseHandler.setFirstName(firstNameStr, loginStr);
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getNameStr() {
+        return nameStr;
     }
 
-    public Profile getProfile() {
-        return profile;
+    public void setNameStr(String nameStr) {
+        this.nameStr = nameStr;
+        DatabaseHandler.setNameStr(nameStr, loginStr);
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public String getPlaceStr() {
+        return placeStr;
     }
 
-    public ArrayList getFriendsList() { return friendsList;}
+    public void setPlaceStr(String placeStr) {
+        this.placeStr = placeStr;
+        DatabaseHandler.setPlaceStr(placeStr, loginStr);
+    }
 
-    public void setFriendList(ArrayList friendsList) {
-        this.friendsList = friendsList;
+    public String getBirthdayStr() {
+        return birthdayStr;
+    }
+
+    public void setBirthdayStr(String birthdayStr) {
+        this.birthdayStr = birthdayStr;
+        DatabaseHandler.setBirthdayStr(birthdayStr, loginStr);
+    }
+
+    public String getLanguageStr() {
+        return languageStr;
+    }
+
+    public void setLanguageStr(String languageStr) {
+        this.languageStr = languageStr;
+        DatabaseHandler.setLanguageStr(languageStr, loginStr);
+    }
+
+    public String getHairStr() {
+        return hairStr;
+    }
+
+    public void setHairStr(String hairStr) {
+        this.hairStr = hairStr;
+        DatabaseHandler.setHairStr(hairStr, loginStr);
+    }
+
+    public String getEyesStr() {
+        return eyesStr;
+    }
+
+    public void setEyesStr(String eyesStr) {
+        this.eyesStr = eyesStr;
+        DatabaseHandler.setEyesStr(eyesStr, loginStr);
+    }
+
+    public String getDescriptionStr() {
+        return descriptionStr;
+    }
+
+    public void setDescriptionStr(String descriptionStr) {
+        this.descriptionStr = descriptionStr;
+        DatabaseHandler.setDescription(description, loginStr);
+    }
+
+    public String getGenderStr() {
+        return genderStr;
+    }
+
+    public void setGenderStr(String genderStr) {
+        this.genderStr = genderStr;
+        DatabaseHandler.setGenderStr(genderStr, loginStr);
+    }
+
+    public String getOrientationStr() {
+        return orientationStr;
+    }
+
+    public void setOrientationStr(String orientationStr) {
+        this.orientationStr = orientationStr;
+        DatabaseHandler.setOrientationStr(orientationStr, loginStr);
     }
 }
