@@ -7,7 +7,7 @@ package lsinf1225.uclove;
  * @author Groupe P
  * @version 25.04.2016
  */
-public class Profile
+public class User
 {
     // instance variables - replace the example below with your own
     private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
@@ -16,7 +16,7 @@ public class Profile
     /**
      * Constructor for objects of class Profil
      */
-    public Profile(String loginStr, String  firstNameStr, String  nameStr, String  placeStr,
+    public User(String loginStr, String  firstNameStr, String  nameStr, String  placeStr,
                    String birthdayStr, String languageStr, String hairStr, String  eyesStr,
                    String descriptionStr, String genderStr, String  orientationStr)
     {
@@ -34,7 +34,7 @@ public class Profile
         this.orientationStr = orientationStr;
     }
 
-    public Profile(String loginStr){
+    public User(String loginStr){
         this.loginStr = loginStr;
         this.firstNameStr = DatabaseHandler.getFisrtNameStr(loginStr);
         this.nameStr = DatabaseHandler.getNameStr(loginStr);
@@ -49,7 +49,7 @@ public class Profile
     }
 
 
-    public Profile(){}
+    public User(){}
 
 
     public String getLoginStr() {
