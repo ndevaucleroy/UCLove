@@ -10,27 +10,34 @@ package lsinf1225.uclove;
 public class Chat
 {
     // instance variables - replace the example below with your own
-    private User friend;
+    private String friend1;
+    private String friend2;
     private String chatHistory;
 
     /**
      * Constructor for objects of class Chat
      */
-    public Chat(User friend, String chatHistory){
+    public Chat(String friend1, String friend2, String chatHistory){
         // initialise instance variables
-        this.friend = friend;
+        this.friend1 = friend1;
+        this.friend2 = friend2;
         this.chatHistory = chatHistory;
+        DatabaseHandler.createChat(this);
     }
 
-    public Chat() {}
-
-    public User getFriend() {
-        return friend;
+    public Chat(String friend1, String friend2) {
+        this.friend1 = friend1;
+        this.friend2 = friend2;
+        this.chatHistory = DatabaseHandler.getChatHistory(this);
     }
 
-    public void setFriend(User friend) {
-        this.friend = friend;
+    public User getFriend1() {
+        return friend1;
     }
+    public User getFriend2() {
+        return friend2;
+    }
+
 
     public String getChatHistory() {
         return chatHistory;
@@ -38,5 +45,12 @@ public class Chat
 
     public void setChatHistory(String chatHistory) {
         this.chatHistory = chatHistory;
+        DatabaseHandler.setChatHistory(this);
+    }
+    public void sendMessage(String message, String friend){
+        //TODO fucking date !
+        this.chatHistory += "b;" + friend + "c;" + message.replaceAll(";", "/;")
+        + "d;";
+        DatabaseHandler.setChatHistory(this);
     }
 }
