@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/bleu"
+    android:background="#ffc1c1"
     android:orientation="vertical">
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -16,7 +16,7 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background=""
             android:id="@+id/YesOrNo"
             android:src="@drawable/beericon"
             android:layout_weight="2"
@@ -25,7 +25,7 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background=""
             android:id="@+id/FriendsRequests"
             android:src="@drawable/beericon"
             android:layout_weight="2"
@@ -34,7 +34,7 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background=""
             android:id="@+id/Friends"
             android:src="@drawable/beericon"
             android:layout_weight="2"
@@ -43,7 +43,7 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background=""
             android:id="@+id/Profile"
             android:src="@drawable/beericon"
             android:layout_weight="2"
@@ -52,7 +52,7 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background=""
             android:id="@+id/Settings"
             android:src="@drawable/beericon"
             android:layout_weight="2"
@@ -87,9 +87,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:text="name"
+                android:text="Hair Color"
                 android:textSize="25sp"
-                android:id="@+id/name"
+                android:id="@+id/hair"
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:layout_weight="1"/>
@@ -97,25 +97,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="firstName"
+                android:text="Eyes Color"
                 android:textSize="25sp"
-                android:id="@+id/firstName"
+                android:id="@+id/eyes"
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="orientation"
-                android:textSize="25sp"
-                android:id="@+id/orientation"
-                android:gravity="center_vertical"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Place"
+                android:text="Same Place"
                 android:textSize="25sp"
                 android:id="@+id/place"
                 android:gravity="center_vertical"
@@ -124,11 +115,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Birthday"
+                android:text="Minimal Age"
                 android:textSize="25sp"
-                android:id="@+id/birthday"
+                android:id="@+id/minimal"
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Maximal Age"
+                android:textSize="25sp"
+                android:id="@+id/maximal"
+                android:gravity="center_vertical"
+                android:textStyle="bold"/>
+
 
         </LinearLayout>
         <LinearLayout
@@ -136,24 +137,21 @@
             android:layout_height="fill_parent"
             android:layout_weight="0.45"
             android:orientation="vertical">
-            <EditText
+            <Spinner
+                android:id="@+id/hairSpinner"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/editName"
-                android:hint="Actual Name"/>
-            <EditText
+                android:layout_weight="1"/>
+            <Spinner
+                android:id="@+id/eyesSpinner"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/editFirstName"
-                android:hint="Actual First Name"/>
-            <EditText
+                android:layout_weight="1"/>
+            <Spinner
+                android:id="@+id/placeBoolean"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/editOrientation"
-                android:hint="Actual Orientation"/>
+                android:layout_weight="1"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
@@ -175,7 +173,7 @@
             <ImageButton
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bleu"
+                android:background=""
                 android:id="@+id/confirm1"
                 android:src="@drawable/beericon"
                 android:layout_weight="2"
@@ -183,7 +181,7 @@
             <ImageButton
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bleu"
+                android:background=""
                 android:id="@+id/confirm2"
                 android:src="@drawable/beericon"
                 android:layout_weight="2"
@@ -191,7 +189,7 @@
             <ImageButton
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bleu"
+                android:background=""
                 android:id="@+id/confirm3"
                 android:src="@drawable/beericon"
                 android:layout_weight="2"
@@ -199,7 +197,7 @@
             <ImageButton
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bleu"
+                android:background=""
                 android:id="@+id/confirm4"
                 android:src="@drawable/beericon"
                 android:layout_weight="2"
@@ -207,7 +205,7 @@
             <ImageButton
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background="@drawable/bleu"
+                android:background=""
                 android:id="@+id/confirm5"
                 android:src="@drawable/beericon"
                 android:layout_weight="2"
