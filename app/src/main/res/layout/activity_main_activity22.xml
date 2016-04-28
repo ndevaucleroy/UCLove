@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bleu"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="0dp">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/imageButton"
+            android:src="@drawable/beerIcon"
+            android:layout_weight="2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/imageView"
+            android:src="@drawable/beerIcon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/beerIcon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/beerIcon"
+            android:layout_weight="2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/imageButton4"
+            android:src="@drawable/beerIcon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/trick"
+            android:src="@drawable/beerIcon"
+            android:layout_gravity="top" />
+    </LinearLayout>
+    </LinearLayout>

@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bleu"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="0dp">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/YesOrNo"
+            android:src="@drawable/beericon"
+            android:layout_weight="2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/FriendsRequests"
+            android:src="@drawable/beericon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/Friends"
+            android:src="@drawable/beericon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/Profile"
+            android:src="@drawable/beericon"
+            android:layout_weight="2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bleu"
+            android:id="@+id/Settings"
+            android:src="@drawable/beericon"
+            android:layout_weight="2"
+            android:layout_gravity="top" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/trick"
+            android:src="@drawable/beericon"
+            android:layout_gravity="top" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Yes or No"
+                android:textAllCaps="true"
+                android:textSize="45sp"
+                android:id="@+id/headText"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\tFirst Name"
+                    android:textSize="30sp"
+                    android:id="@+id/firstName"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"/>
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/acceptable"
+                android:layout_weight="1"
+                android:background="@drawable/bleu"
+                android:scaleType="fitCenter"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.15">
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bleu"
+                android:src="@drawable/beericon"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bleu"
+                android:src="@drawable/beericon"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
