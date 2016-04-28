@@ -2,7 +2,7 @@ package lsinf1225.uclove;
 
 
 /**
- * Write a description of class Profil here.
+ * Write a description of class User here.
  *
  * @author Groupe P
  * @version 25.04.2016
@@ -14,7 +14,7 @@ public class User
             hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
 
     /**
-     * Constructor for objects of class Profil
+     * Constructor for objects of class User
      */
     public User(String loginStr, String  firstNameStr, String  nameStr, String  placeStr,
                    String birthdayStr, String languageStr, String hairStr, String  eyesStr,
@@ -50,16 +50,19 @@ public class User
 
 
     public User(){}
-
+    
+    
+     public static boolean isLoginAvailable(String username){
+        return true;
+    }
 
     public String getLoginStr() {
         return loginStr;
     }
 
     public void setLoginStr(String loginStr){
-
-
-
+    DatabaseHandler.setLoginStr(logintStr, this.loginStr);
+    this.loginStr = loginStr;
     }
 
     public String getFirstNameStr() {
