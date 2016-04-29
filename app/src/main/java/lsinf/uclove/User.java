@@ -1,5 +1,7 @@
 package lsinf1225.uclove;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 /**
  *
@@ -24,7 +26,7 @@ public class User
     public User(String passwordStr, String loginStr, String  firstNameStr,
                 String  nameStr, String  placeStr, String birthdayStr, String languageStr,
                 String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, boolean[] hair, boolean[] eyes, boolean samePlace,
-                int ageMin, int ageMax)
+                int ageMin, int ageMax, Context context)//constructeur pour un tout nouvel utilisateur
     {
         this.passwordStr = passwordStr;
         this.loginStr = loginStr;
@@ -38,33 +40,45 @@ public class User
         this.descriptionStr = descriptionStr;
         this.genderStr = genderStr;
         this.orientationStr = orientationStr;
-        this.friends = new Friends(this.loginStr, true);
+        this.friends = new Friends(this.loginStr, true, context);
         this.hair = hair;
         this.eyes = eyes;
         this.samePlace = samePlace;
         this.ageMin = ageMin;
         this.ageMax = ageMax;
-        DatabaseHandler.createUser(this);
+        UserManager uM = new UserManager(context);
+        uM.open();
+        uM.addUser(this);
+        uM.close();
     }
 
     public User(){
     }
-    public User(String loginStr) {
+    public User(String loginStr, Context context) { //in order to load an User from the database
         this.loginStr = loginStr;
-        this.password = DatabaseHandler.getPassword(loginStr);
-        this.firstNameStr = DatabaseHandler.getFisrtNameStr(loginStr);
-        this.nameStr = DatabaseHandler.getNameStr(loginStr);
-        this.placeStr = DatabaseHandler.getPlaceStr(loginStr);
-        this.birthdayStr = DatabaseHandler.getBirthdayStr(loginStr);
-        this.languageStr = DatabaseHandler.getLanguageStr(loginStr);
-        this.hairStr = DatabaseHandler.getHairStr(loginStr);
-        this.eyesStr = DatabaseHandler.getEyesStr(loginStr);
-        this.descriptionStr = DatabaseHandler.getDescriptionStr(loginStr);
-        this.genderStr = DatabaseHandler.getGenderStr(loginStr);
-        this.orientationStr = DatabaseHandler.getOrientation(loginStr);
-        this.friends = new Friends(loginStr, false);
+        UserManager uM = new UserManager(context);
+        uM.open();
+        if(uM.loadUserStr(this));
+        else{System.err.println("coundnt laod a user");}
+        uM.close();
+        this.friends = new Friends(this.loginStr, false, context);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof User))
+        {return false;}
+        User user = (User) o;
+        if (user.loginStr == this.loginStr){
+        return true;}
+        return false;
+    }
+    public void updateDatabase(Context context){
+        UserManager uM = new UserManager(context);
+        uM.open();
+        uM.modUser(this);
+        uM.close();
+    }
     public void setHair(boolean[] hair) {
         this.hair = hair;
     }
