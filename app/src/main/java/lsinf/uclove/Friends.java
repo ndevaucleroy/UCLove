@@ -1,5 +1,7 @@
 package lsinf1225.uclove;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,7 +26,7 @@ public class Friends
      * Constructor for objects of class Friends
      */
 
-    public Friends(String listOwnerStr, boolean alreadyCreated){
+    public Friends(String listOwnerStr, boolean alreadyCreated, Context context){
      if(alreadyCreated){
          this.listOwnerStr = listOwnerStr;
          this.friendsListStr = null;
@@ -32,36 +34,55 @@ public class Friends
          this.recFriendsRequestsStr = null;
      }
      else{
+         FriendshipManager fM = new FriendshipManager(context);
+         fM.open();
          this.listOwnerStr = listOwnerStr;
-         this.friendsListStr= new ArrayList<String>(Arrays.asList(DatabaseHandler.getFriends(listOwnerStr)));
+         this.friendsListStr= fM.getFriendsStr(listOwnerStr);
          this.recFriendsRequestsStr= new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
          this.sentFriendsRequestsStr = new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
+         fM.close();
      }
 
     }
     public Friends(){}
 
-    public boolean sendFriendRequest(String target){ //sends true if worked, sends false if it was already a friend
+    public boolean sendFriendRequest(String target, Context context){ //sends true if worked, sends false if it was already a friend
         if(sentFriendsRequestsStr.contains(target)){
         return false;
         }
         sentFriendsRequestsStr.add(target);
-        DatabaseHandler.addFriendRequest(listOwnerStr, target);
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        fM.addFriendship(new Friendship(listOwnerStr, target, null));
+        fM.close();
         return true;
     }
-    public void acceptFriendRequest(String target){
+    public void acceptFriendRequest(String target, Context context){
         recFriendsRequestsStr.remove(target);
         friendsListStr.add(target);
-        DatabaseHandler.addFriend(listOwnerStr, target);
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        fM.modFriendship(new Friendship(listOwnerStr, target, "b;" + listOwnerStr + "c;" + "Ur my niuuu frieeeeeeend, lets fuck" + "d;"));
+        fM.close();
 
     }
-    public void refuseFriendRequest(String target){
+    public void refuseFriendRequest(String target, Context context){
         recFriendsRequestsStr.remove(target);
-        DatabaseHandler.removeFriendRequest(listOwnerStr, target);
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        if(fM.supFriendship(new Friendship(listOwnerStr, target, "")) == 0){
+            System.err.println("error sql delete request");
+        }
+        fM.close();
     }
-    public void deleteFriend(String target){
+    public void deleteFriend(String target, Context context){
         friendsListStr.remove(target);
-        DatabaseHandler.removeFriend(listOwnerStr, target);
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        if(fM.supFriendship(new Friendship(listOwnerStr, target, "")) == 0){
+            fM.supFriendship(new Friendship(target, listOwnerStr, ""));
+        }
+        fM.close();
     }
     public String getListOwnerStr() {
         return listOwnerStr;
