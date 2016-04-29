@@ -3,71 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/bleu"
+    android:background="#ffc1c1"
     android:orientation="vertical">
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:background="#ff5555"
         android:orientation="horizontal"
-        android:gravity="start"
-        android:layout_marginTop="0dp">
+        android:layout_weight="0.1">
 
         <ImageButton
             android:layout_width="0dp"
+            android:layout_marginTop="5dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background="@android:color/transparent"
             android:id="@+id/YesOrNo"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top"/>
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:id="@+id/FriendsRequests"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background="#ffc1c1"
             android:id="@+id/Friends"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:id="@+id/Profile"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top"/>
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@drawable/bleu"
+            android:background="@android:color/transparent"
             android:id="@+id/Settings"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
-            android:layout_gravity="top" />
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/trick"
-            android:src="@drawable/beericon"
+            android:src="@drawable/beer"
+            android:scaleType="fitCenter"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
     </LinearLayout>
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Mes amis"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="My Friends"
         android:textAllCaps="true"
         android:textSize="45sp"
         android:id="@+id/headText"
@@ -75,6 +80,8 @@
         android:textStyle="bold"/>
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
         android:id="@+id/listfriends"></ListView>
     </LinearLayout>

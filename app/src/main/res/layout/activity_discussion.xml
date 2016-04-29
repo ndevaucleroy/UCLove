@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:scaleType="fitCenter"
-            android:background="#ffc1c1"
+            android:background="@android:color/transparent"
             android:id="@+id/FriendsRequests"
             android:src="@drawable/beer"
             android:layout_weight="0.2"
@@ -39,7 +39,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background="@android:color/transparent"
+            android:background="#ffc1c1"
             android:id="@+id/Friends"
             android:scaleType="fitCenter"
             android:src="@drawable/beer"
@@ -68,68 +68,59 @@
             android:layout_weight="0.2"
             android:layout_gravity="top" />
     </LinearLayout>
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:text="Friends Request"
-            android:textAllCaps="true"
-            android:textSize="40sp"
-            android:id="@+id/headText"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:layout_weight="0.1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.075"
-            android:text="First Name"
-            android:textSize="30sp"
-            android:id="@+id/firstName"
-            android:layout_margin="10dp"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"/>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.625">
+        android:layout_weight="0.1">
         <ImageButton
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_weight="0.3"
             android:src="@drawable/acceptable"
-            android:id="@+id/otherProfile"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.7"
+        android:text="Name"
+        android:textAllCaps="true"
+        android:textSize="45sp"
+        android:id="@+id/headText"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+        </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="No other friend request :^("
-            android:id="@+id/noFound"
-            android:gravity="center"
-            android:textSize="40sp"
-            android:textColor="#000000"/>
-    </RelativeLayout>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:layout_weight="0.1">
-            <ImageButton
-                android:layout_width="0dp"
-                android:id="@+id/no"
-                android:scaleType="fitCenter"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/beer"/>
-            <ImageButton
-                android:layout_width="0dp"
-                android:id="@+id/yes"
-                android:scaleType="fitCenter"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/beer"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenu du chat"
+            android:textSize="25sp"/>
+        </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.8"
+            android:hint="Your Message"
+            android:id="@+id/chat"
+            android:background="#ffe1e1"/>
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/sent"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
+            android:layout_gravity="top" />
         </LinearLayout>
     </LinearLayout>

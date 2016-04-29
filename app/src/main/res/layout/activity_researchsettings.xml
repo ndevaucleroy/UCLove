@@ -8,66 +8,71 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:background="#ff5555"
         android:orientation="horizontal"
-        android:gravity="start"
-        android:layout_marginTop="0dp">
+        android:layout_weight="0.1">
 
         <ImageButton
             android:layout_width="0dp"
+            android:layout_marginTop="5dp"
             android:layout_height="fill_parent"
-            android:background=""
+            android:background="@android:color/transparent"
             android:id="@+id/YesOrNo"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top"/>
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background=""
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:id="@+id/FriendsRequests"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background=""
+            android:background="@android:color/transparent"
             android:id="@+id/Friends"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background=""
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:id="@+id/Profile"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
             android:layout_gravity="top"/>
 
         <ImageButton
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:background=""
+            android:background="#ffc1c1"
             android:id="@+id/Settings"
-            android:src="@drawable/beericon"
-            android:layout_weight="2"
-            android:layout_gravity="top" />
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/trick"
-            android:src="@drawable/beericon"
+            android:src="@drawable/beer"
+            android:scaleType="fitCenter"
+            android:layout_weight="0.2"
             android:layout_gravity="top" />
     </LinearLayout>
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile Settings"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="Research Settings"
         android:textAllCaps="true"
         android:textSize="45sp"
         android:id="@+id/headText"
@@ -77,11 +82,11 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="0.85">
+        android:layout_weight="0.8">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.35"
+            android:layout_weight="0.375"
             android:orientation="vertical"
             android:layout_marginLeft="10dp">
             <TextView
@@ -135,30 +140,45 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.45"
+            android:layout_weight="0.475"
             android:orientation="vertical">
             <Spinner
+                android:background="#ffd1d1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:id="@+id/hairSpinner"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <Spinner
+                android:background="#ffd1d1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:id="@+id/eyesSpinner"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <Spinner
+                android:background="#ffd1d1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:id="@+id/placeBoolean"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/editPlace"
                 android:hint="Actual Place"/>
             <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -168,46 +188,52 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.15"
+            android:layout_margin="10dp"
             android:orientation="vertical">
             <ImageButton
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:id="@+id/confirm1"
-                android:src="@drawable/beericon"
+                android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
             <ImageButton
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:id="@+id/confirm2"
-                android:src="@drawable/beericon"
+                android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
             <ImageButton
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:id="@+id/confirm3"
-                android:src="@drawable/beericon"
+                android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
             <ImageButton
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:id="@+id/confirm4"
-                android:src="@drawable/beericon"
+                android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
             <ImageButton
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:id="@+id/confirm5"
-                android:src="@drawable/beericon"
+                android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
         </LinearLayout>

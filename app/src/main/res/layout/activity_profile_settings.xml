@@ -72,7 +72,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:text="App Settings"
+        android:text="Profile Settings"
         android:textAllCaps="true"
         android:textSize="45sp"
         android:id="@+id/headText"
@@ -82,19 +82,19 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="0.8">
+        android:layout_weight="0.65">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.35"
+            android:layout_weight="0.375"
             android:orientation="vertical"
             android:layout_marginLeft="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:text="Language"
+                android:text="name"
                 android:textSize="25sp"
-                android:id="@+id/language"
+                android:id="@+id/name"
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:layout_weight="1"/>
@@ -102,95 +102,156 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Password"
+                android:text="firstName"
                 android:textSize="25sp"
-                android:id="@+id/password"
+                android:id="@+id/firstName"
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Confirm"
+                android:text="orientation"
                 android:textSize="25sp"
-                android:id="@+id/confirm"
+                android:id="@+id/orientation"
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Theme"
+                android:text="Place"
                 android:textSize="25sp"
-                android:id="@+id/theme"
+                android:id="@+id/place"
+                android:gravity="center_vertical"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Birthday"
+                android:textSize="25sp"
+                android:id="@+id/birthday"
+                android:gravity="center_vertical"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Eyes Color"
+                android:textSize="25sp"
+                android:id="@+id/eyes"
+                android:gravity="center_vertical"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Hair Color"
+                android:textSize="25sp"
+                android:id="@+id/hair"
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
 
-        </LinearLayout>
+            </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.45"
-            android:layout_margin="10dp"
+            android:layout_weight="0.425"
             android:orientation="vertical">
-            <Spinner
-                android:background="#ffd1d1"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/languageSpinner"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
             <EditText
                 android:background="#ffd1d1"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/editName"
+                android:hint="Actual Name"/>
+            <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/editFirstName"
-                android:hint="New Password"/>
+                android:hint="Actual First Name"/>
             <EditText
                 android:background="#ffd1d1"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/editOrientation"
-                android:hint="Confirm Password"/>
-            <Spinner
+                android:hint="Actual Orientation"/>
+            <EditText
                 android:background="#ffd1d1"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/themeSpinner"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
+                android:layout_weight="1"
+                android:id="@+id/editPlace"
+                android:hint="Actual Place"/>
+            <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/editBirthday"
+                android:hint="Actual Birthday"/>
+            <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/editEye"
+                android:hint="Actual Eyes Color"/>
+            <EditText
+                android:background="#ffd1d1"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/editHair"
+                android:hint="Actual Hair Color"/>
+            </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.2"
-            android:layout_margin="10dp"
+            android:layout_weight="0.15"
             android:orientation="vertical">
             <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
                 android:id="@+id/confirm1"
                 android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
-            <LinearLayout
+            <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"></LinearLayout>
+                android:background="@android:color/transparent"
+                android:id="@+id/confirm2"
+                android:src="@drawable/beer"
+                android:layout_weight="2"
+                android:layout_gravity="top"/>
             <ImageButton
-                android:layout_width="fill_parent"
+                android:layout_margin="4dp"
                 android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/confirm3"
@@ -198,15 +259,56 @@
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
             <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
                 android:id="@+id/confirm4"
                 android:src="@drawable/beer"
                 android:layout_weight="2"
                 android:layout_gravity="top"/>
-
+            <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/confirm5"
+                android:src="@drawable/beer"
+                android:layout_weight="2"
+                android:layout_gravity="top"/>
+            <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/confirm6"
+                android:src="@drawable/beer"
+                android:layout_weight="2"
+                android:layout_gravity="top"/>
+            <ImageButton
+                android:layout_margin="4dp"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/confirm7"
+                android:src="@drawable/beer"
+                android:layout_weight="2"
+                android:layout_gravity="top"/>
         </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Modifier Album"
+            android:layout_margin="10dp"
+            android:background="#e36899"/>
+        </LinearLayout>
     </LinearLayout>
