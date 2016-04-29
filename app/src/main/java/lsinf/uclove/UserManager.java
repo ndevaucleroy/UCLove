@@ -60,6 +60,7 @@ public class UserManager {
         ContentValues values = new ContentValues();
 
         values.put(PERSON_LOGIN, user.getLoginStr());
+        values.put(PERSON_PLACE, user.getPlaceStr());
         values.put(PERSON_FIRST_NAME, user.getFirstNameStr());
         values.put(PERSON_NAME, user.getNameStr());
         values.put(PERSON_BIRTHDAY, user.getBirthdayStr());
@@ -78,6 +79,7 @@ public class UserManager {
         ContentValues values = new ContentValues();
 
         values.put(PERSON_LOGIN, user.getLoginStr());
+        values.put(PERSON_PLACE, user.getPlaceStr());
         values.put(PERSON_FIRST_NAME, user.getFirstNameStr());
         values.put(PERSON_NAME, user.getNameStr());
         values.put(PERSON_BIRTHDAY, user.getBirthdayStr());
@@ -103,10 +105,11 @@ public class UserManager {
     }
 
     public User getUserStr(String login) {
-        User u = new User("","","","","","","","","","","","");
+        User u = new User();
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_PERSON+" WHERE "+PERSON_LOGIN+" = "+login,null);
         if(c.moveToFirst()){
             u.setLoginStr(c.getString(c.getColumnIndex(PERSON_LOGIN)));
+            u.setLoginStr(c.getString(c.getColumnIndex(PERSON_PLACE)));
             u.setFirstNameStr(c.getString(c.getColumnIndex(PERSON_FIRST_NAME)));
             u.setNameStr(c.getString(c.getColumnIndex(PERSON_NAME)));
             u.setBirthdayStr(c.getString(c.getColumnIndex(PERSON_BIRTHDAY)));
