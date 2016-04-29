@@ -63,8 +63,15 @@ public class User
         return loginStr;
     }
     
+    public void setLoginStr(String loginStr){
+        this.loginStr = loginStr;
+    }
     public String getPasswordStr(){
         return passwordStr;
+    }
+    
+    public void setPasswordStr(String password){
+        this.password = password;
     }
     
     public String getFirstNameStr() {
@@ -73,7 +80,6 @@ public class User
 
     public void setFirstNameStr(String firstNameStr) {
         this.firstNameStr = firstNameStr;
-        DatabaseHandler.setFirstName(firstNameStr, loginStr);
     }
 
     public String getNameStr() {
@@ -82,7 +88,6 @@ public class User
 
     public void setNameStr(String nameStr) {
         this.nameStr = nameStr;
-        DatabaseHandler.setNameStr(nameStr, loginStr);
     }
 
     public String getPlaceStr() {
@@ -91,7 +96,6 @@ public class User
 
     public void setPlaceStr(String placeStr) {
         this.placeStr = placeStr;
-        DatabaseHandler.setPlaceStr(placeStr, loginStr);
     }
 
     public String getBirthdayStr() {
@@ -100,7 +104,6 @@ public class User
 
     public void setBirthdayStr(String birthdayStr) {
         this.birthdayStr = birthdayStr;
-        DatabaseHandler.setBirthdayStr(birthdayStr, loginStr);
     }
 
     public String getLanguageStr() {
@@ -109,7 +112,6 @@ public class User
 
     public void setLanguageStr(String languageStr) {
         this.languageStr = languageStr;
-        DatabaseHandler.setLanguageStr(languageStr, loginStr);
     }
 
     public String getHairStr() {
@@ -118,7 +120,6 @@ public class User
 
     public void setHairStr(String hairStr) {
         this.hairStr = hairStr;
-        DatabaseHandler.setHairStr(hairStr, loginStr);
     }
 
     public String getEyesStr() {
@@ -127,7 +128,6 @@ public class User
 
     public void setEyesStr(String eyesStr) {
         this.eyesStr = eyesStr;
-        DatabaseHandler.setEyesStr(eyesStr, loginStr);
     }
 
     public String getDescriptionStr() {
@@ -136,7 +136,7 @@ public class User
 
     public void setDescriptionStr(String descriptionStr) {
         this.descriptionStr = descriptionStr;
-        DatabaseHandler.setDescription(description, loginStr);
+    
     }
 
     public String getGenderStr() {
@@ -145,7 +145,7 @@ public class User
 
     public void setGenderStr(String genderStr) {
         this.genderStr = genderStr;
-        DatabaseHandler.setGenderStr(genderStr, loginStr);
+      
     }
 
     public String getOrientationStr() {
@@ -154,7 +154,7 @@ public class User
 
     public void setOrientationStr(String orientationStr) {
         this.orientationStr = orientationStr;
-        DatabaseHandler.setOrientationStr(orientationStr, loginStr);
+       
     }
 
     public Friends getFriends() {
