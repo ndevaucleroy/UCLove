@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class User
 {
     protected String password;
-    private ArrayList friendsList;
     private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
             hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
     private Friends friends;
@@ -18,12 +17,11 @@ public class User
     /**
      * Constructor for objects of class User
      */
-    public User(String password, ArrayList friendsList, String loginStr, String  firstNameStr,
+    public User(String password, String loginStr, String  firstNameStr,
                 String  nameStr, String  placeStr, String birthdayStr, String languageStr,
                 String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr)
     {
         this.password = password;
-        this.friendsList = friendsList;
         this.loginStr = loginStr;
         this.firstNameStr = firstNameStr;
         this.nameStr = nameStr;
