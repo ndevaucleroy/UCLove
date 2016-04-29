@@ -1,26 +1,36 @@
 package lsinf1225.uclove;
 
-import java.util.ArrayList;
-
 /**
- * Write a description of class Album here.
+ * Classe liant un login et une photo qu'il a rajouter.
  *
  * @author Groupe P
  * @version 25.04.2016
  */
-public class Album
-{
-    // instance variables - replace the example below with your own
-    private ArrayList album;
+public class Album {
 
-    /**
-     * Constructor for objects of class Album
-     */
-    public Album(ArrayList album)
-    {
-        // initialise instance variables
-        this.album = album;
+    private String login;
+    private String picture;
+
+    // Constructeur
+    public Album(String login, String picture) {
+        this.login=login;
+        this.picture=picture;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
 }
