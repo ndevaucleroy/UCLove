@@ -108,7 +108,7 @@ public class UserManager {
         return db.delete(TABLE_PERSON, where, whereArgs);
     }
 
-    public User getUserStr(String login) {
+    public User getUserStr(String login) { //please dont use this ! Use new User(String login); instead !!!!
         User u = new User();
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_PERSON+" WHERE "+PERSON_LOGIN+" = "+login,null);
         if(c.moveToFirst()){
@@ -128,7 +128,26 @@ public class UserManager {
         }
         return u;
     }
-
+       public boolean loadUserStr(User u){ //this is called from the second contructor of User, new User(String login);
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_PERSON+" WHERE "+PERSON_LOGIN+" = "+u.getLoginStr(),null);
+        if(c.moveToFirst()){
+            u.setLoginStr(c.getString(c.getColumnIndex(PERSON_PLACE)));
+            u.setFirstNameStr(c.getString(c.getColumnIndex(PERSON_FIRST_NAME)));
+            u.setNameStr(c.getString(c.getColumnIndex(PERSON_NAME)));
+            u.setBirthdayStr(c.getString(c.getColumnIndex(PERSON_BIRTHDAY)));
+            u.setLanguageStr(c.getString(c.getColumnIndex(PERSON_LANGUAGE)));
+            u.setHairStr(c.getString(c.getColumnIndex(PERSON_HAIR)));
+            u.setEyesStr(c.getString(c.getColumnIndex(PERSON_EYES)));
+            u.setPasswordStr(c.getString(c.getColumnIndex(PERSON_PASSWORD)));
+            u.setDescriptionStr(c.getString(c.getColumnIndex(PERSON_DESCRIPTION)));
+            u.setGenderStr(c.getString(c.getColumnIndex(PERSON_GENDER)));
+            u.setOrientationStr(c.getString(c.getColumnIndex(PERSON_ORIENTATION)));
+            c.close();
+            return true;
+        }
+        System.err.println("This user is not in Tables");
+        return false;
+    }
     /**
      *
      * @param request Le String renvoyer par makePersonnalRequest().
