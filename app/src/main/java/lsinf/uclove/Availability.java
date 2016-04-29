@@ -30,7 +30,7 @@ public class Availability {
         return date;
     }
 
-    public void setDate() {
+    public void setDate(String date) {
         this.date = date;
     }
 }
