@@ -58,6 +58,7 @@ public class User
     public static boolean isLoginAvailable(String username){
         return true;
     }
+    
     public String getLoginStr(){
         return loginStr;
     }
