@@ -5,7 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Created by cariamole on 29.04.16.
  */
@@ -78,5 +79,67 @@ public class FriendshipManager {
             c.close();
         }
         return f;
+    }
+    public ArrayList<String> getFriendsStr(String login1){
+        ArrayList<String> list= new ArrayList();
+
+        Cursor c= db.rawQuery("SELECT * FROM "+TABLE_FRIENDSHIP+" WHERE "+FRIENDSHIP_LOGIN1+" = "+login1, null);
+        if(c.moveToFirst()){c.close();
+            return null;}
+
+        while(c.moveToNext() && !c.isAfterLast()){
+            if(c.getString(c.getColumnIndex(FRIENDSHIP_CHAT)) != null) {
+                list.add(c.getString(c.getColumnIndex(FRIENDSHIP_LOGIN2)));
+            }
+
+        }
+        c.close();
+        Cursor d = db.rawQuery("SELECT * FROM "+TABLE_FRIENDSHIP+" WHERE "+FRIENDSHIP_LOGIN2+" = "+login1, null);
+        if(d.moveToFirst()){d.close();
+            return null;}
+
+        while(d.moveToNext() && !d.isAfterLast()){
+            if(d.getString(d.getColumnIndex(FRIENDSHIP_CHAT)) != null) {
+                list.add(d.getString(d.getColumnIndex(FRIENDSHIP_LOGIN1)));
+            }
+
+        }
+        d.close();
+
+        return list;
+    }
+    public ArrayList<String> getRecFriendsRequestStr(String login2){
+        ArrayList<String> list= new ArrayList();
+
+        Cursor c= db.rawQuery("SELECT * FROM "+TABLE_FRIENDSHIP+" WHERE "+FRIENDSHIP_LOGIN2+" = "+login2, null);
+        if(c.moveToFirst()){c.close();
+            return null;}
+
+        while(c.moveToNext() && !c.isAfterLast()){
+            if(c.getString(c.getColumnIndex(FRIENDSHIP_CHAT)) == null) {
+                list.add(c.getString(c.getColumnIndex(FRIENDSHIP_LOGIN1)));
+            }
+
+        }
+        c.close();
+
+        return list;
+    }
+    public ArrayList<String> getSentFriendsRequestStr(String login1){
+        ArrayList<String> list= new ArrayList();
+
+        Cursor c= db.rawQuery("SELECT * FROM "+TABLE_FRIENDSHIP+" WHERE "+FRIENDSHIP_LOGIN1+" = "+login1, null);
+        if(c.moveToFirst()){c.close();
+            return null;}
+
+        while(c.moveToNext() && !c.isAfterLast()){
+            if(c.getString(c.getColumnIndex(FRIENDSHIP_CHAT)) == null) {
+                list.add(c.getString(c.getColumnIndex(FRIENDSHIP_LOGIN2)));
+            }
+
+        }
+        c.close();
+
+        return list;
     }
 }
