@@ -62,6 +62,10 @@ public class User
         return loginStr;
     }
     
+    public String getPasswordStr(){
+        return passwordStr;
+    }
+    
     public String getFirstNameStr() {
         return firstNameStr;
     }
