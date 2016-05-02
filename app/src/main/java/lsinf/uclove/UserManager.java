@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.Array;
 
 
 /**
@@ -128,7 +127,7 @@ public class UserManager {
         }
         return u;
     }
-       public boolean loadUserStr(User u){ //this is called from the second contructor of User, new User(String login);
+    public boolean loadUserStr(User u){ //this is called from the second contructor of User, new User(String login);
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_PERSON+" WHERE "+PERSON_LOGIN+" = "+u.getLoginStr(),null);
         if(c.moveToFirst()){
             u.setLoginStr(c.getString(c.getColumnIndex(PERSON_PLACE)));
@@ -150,11 +149,12 @@ public class UserManager {
     }
     /**
      *
-     * @param request Le String renvoyer par makePersonnalRequest().
+     * @param
      * @param user à qui on cherche la liste.
      * @return un ArrayList contenant la liste des personnes qui pourrait l'intéresser.
      */
-    public ArrayList<User> generateListResearch(String request, User user) {
+    public ArrayList<User> generateListResearch(User user, Context context) {
+        String request = user.makePersonalRequest();
         ArrayList<User> listPoss = new ArrayList();
         Cursor c = db.rawQuery(request, null);
         if(c.moveToFirst()) {
@@ -175,18 +175,20 @@ public class UserManager {
                 listPoss.add(u);
             } while (c.moveToNext());
         }
-        ArrayList<User> listFriends= user.getFriends().getFriendsListUsr();
+        ArrayList<User> listFriends= user.getFriends().getFriendsUsr(context);
         for(int i = 0; i < listFriends.size(); i++) {
             listPoss.remove(listFriends.get(i));
         }
-        ArrayList<User> listSentFriends = user.getFriends().getSentFriendsRequestsUsr();
+        ArrayList<User> listSentFriends = user.getFriends().getSentFriendsRequestsUsr(context);
         for(int i = 0; i < listSentFriends.size(); i++) {
             listPoss.remove(listSentFriends.get(i));
         }
-        ArrayList<User> listRecFriends = user.getFriends().getRecFriendsRequestsUsr();
+        ArrayList<User> listRecFriends = user.getFriends().getRecFriendsRequestsUsr(context);
         for(int i = 0; i < listRecFriends.size(); i++) {
             listPoss.remove(listRecFriends.get(i));
         }
         return listPoss;
     }
+
+    
 }
