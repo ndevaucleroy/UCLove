@@ -198,5 +198,9 @@ public class UserManager {
         return listPoss;
     }
 
+    public boolean isLoginAvailable(String login) {
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_PERSON + " WHERE " + PERSON_LOGIN + " = " + login, null);
+        return (false == c.moveToFirst());
+    }
     
 }
