@@ -28,6 +28,7 @@ public class UserManager {
     public static final String PERSON_DESCRIPTION = "description";
     public static final String PERSON_GENDER = "gender";
     public static final String PERSON_ORIENTATION = "orientation";
+    public static final String PERSON_FAVORITE = "favorite";
     //Create
     public static final String PERSON_TABLE_CREATE =
             "CREATE TABLE " + TABLE_PERSON + " (" +
@@ -42,7 +43,9 @@ public class UserManager {
                     PERSON_PASSWORD + " TEXT not null, " +
                     PERSON_DESCRIPTION + " TEXT not null, " +
                     PERSON_GENDER + " TEXT not null, " +
-                    PERSON_ORIENTATION + " TEXT not null);";
+                    PERSON_ORIENTATION + " TEXT not null" + 
+                    PERSON_FAVORITE + "INTEGER not null);";
+                
 
     private DatabaseHandler maBaseSQLite;
     private SQLiteDatabase db;
@@ -74,6 +77,7 @@ public class UserManager {
         values.put(PERSON_DESCRIPTION, user.getDescriptionStr());
         values.put(PERSON_GENDER, user.getGenderStr());
         values.put(PERSON_ORIENTATION, user.getOrientationStr());
+        values.put(PERSON_FAVORITE, user.getFavoriteStr());
 
         return db.insert(TABLE_PERSON, null, values);
     }
@@ -93,6 +97,7 @@ public class UserManager {
         values.put(PERSON_DESCRIPTION, user.getDescriptionStr());
         values.put(PERSON_GENDER, user.getGenderStr());
         values.put(PERSON_ORIENTATION, user.getOrientationStr());
+        values.put(PERSON_FAVORITE, user.getFavoriteStr());
 
         String where = PERSON_LOGIN + " = ?";
         String[] whereArgs = {user.getLoginStr() + ""};
@@ -123,6 +128,7 @@ public class UserManager {
             u.setDescriptionStr(c.getString(c.getColumnIndex(PERSON_DESCRIPTION)));
             u.setGenderStr(c.getString(c.getColumnIndex(PERSON_GENDER)));
             u.setOrientationStr(c.getString(c.getColumnIndex(PERSON_ORIENTATION)));
+            u.setFavoriteStr(c.getInt(c.getColumnIndex(PERSON_FAVORITE)));
             c.close();
         }
         return u;
@@ -141,6 +147,7 @@ public class UserManager {
             u.setDescriptionStr(c.getString(c.getColumnIndex(PERSON_DESCRIPTION)));
             u.setGenderStr(c.getString(c.getColumnIndex(PERSON_GENDER)));
             u.setOrientationStr(c.getString(c.getColumnIndex(PERSON_ORIENTATION)));
+            u.setFavoriteStr(c.getInt(c.getColumnIndex(PERSON_FAVORITE)));
             c.close();
             return true;
         }
@@ -172,6 +179,7 @@ public class UserManager {
                 u.setDescriptionStr(c.getString(c.getColumnIndex(PERSON_DESCRIPTION)));
                 u.setGenderStr(c.getString(c.getColumnIndex(PERSON_GENDER)));
                 u.setOrientationStr(c.getString(c.getColumnIndex(PERSON_ORIENTATION)));
+                u.setFavoriteStr(c.getInt(c.getColumnIndex(PERSON_FAVORITE)));
                 listPoss.add(u);
             } while (c.moveToNext());
         }
