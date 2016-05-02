@@ -15,18 +15,13 @@ public class User
     private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
             hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
     private Friends friends;
-
-    boolean[] hair;
-    boolean[] eyes;
-    boolean samePlace;
-    int ageMin, ageMax;
+    private Favorite favoriteStr;
     /**
      * Constructor for objects of class User
      */
     public User(String passwordStr, String loginStr, String  firstNameStr,
                 String  nameStr, String  placeStr, String birthdayStr, String languageStr,
-                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, boolean[] hair, boolean[] eyes, boolean samePlace,
-                int ageMin, int ageMax, Context context)//constructeur pour un tout nouvel utilisateur
+                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, Favorite favoriteStr, Context context)//constructeur pour un tout nouvel utilisateur
     {
         this.passwordStr = passwordStr;
         this.loginStr = loginStr;
@@ -40,12 +35,8 @@ public class User
         this.descriptionStr = descriptionStr;
         this.genderStr = genderStr;
         this.orientationStr = orientationStr;
+        this.favorite=favorite;
         this.friends = new Friends(this.loginStr, true, context);
-        this.hair = hair;
-        this.eyes = eyes;
-        this.samePlace = samePlace;
-        this.ageMin = ageMin;
-        this.ageMax = ageMax;
         UserManager uM = new UserManager(context);
         uM.open();
         uM.addUser(this);
@@ -79,48 +70,18 @@ public class User
         uM.modUser(this);
         uM.close();
     }
-    public void setHair(boolean[] hair) {
-        this.hair = hair;
-    }
-
-    public void setEyes(boolean[] eyes) {
-        this.eyes = eyes;
-    }
-
-    public void setSamePlace(boolean samePlace) {
-        this.samePlace = samePlace;
-    }
-
-    public void setAgeMin(int ageMin) {
-        this.ageMin = ageMin;
-    }
-
-    public void setAgeMax(int ageMax) {
-        this.ageMax = ageMax;
-    }
+    
 
     public void setFriends(Friends friends) {
         this.friends = friends;
     }
-
-    public boolean[] getHair() {
-        return hair;
+    
+    public void setFavorite(Favorite fav){
+        this.favorite=fav;
     }
 
-    public boolean[] getEyes() {
-        return eyes;
-    }
-
-    public boolean getSamePlace() {
-        return samePlace;
-    }
-
-    public int getAgeMin() {
-        return ageMin;
-    }
-
-    public int getAgeMax() {
-        return ageMax;
+    public Favorite getFavorite(){
+        return this.favorite;
     }
 
     public static boolean isLoginAvailable(String username){
@@ -234,38 +195,43 @@ public class User
      * @return string pour la requete XML par rapport a ses preferences
      */
     public String makePersonalRequest() {
+        boolean[] hair=this.favorite.getHair();
+        boolean[] eyes=.this.favorite.getEyes();
+        boolean samePlace=this.favorite.getPlace();
+        int ageMin=this.favorite.getMin();
+        int ageMax=this.favorite.getMax();
         String request = "SELECT login FROM person WHERE " ;
         // Test de la couleur des cheveux.
-        if(this.hair[0]) {
+        if(hair[0]) {
             request += "hair = 'black' and ";
         }
-        if(this.hair[1]) {
+        if(hair[1]) {
             request += "hair = 'blond' and ";
         }
-        if(this.hair[2]) {
+        if(hair[2]) {
             request += "hair = 'brown' and ";
         }
-        if(this.hair[3]) {
+        if(hair[3]) {
             request += "hair = 'other' and ";
         }
-        if(this.hair[4]) {
+        if(hair[4]) {
             request += "hair = 'red' and ";
         }
         // Test de la couleur des yeux.
-        if(this.eyes[0]) {
+        if(eyes[0]) {
             request += "eyes = 'black' and ";
         }
-        if(this.eyes[1]) {
+        if(eyes[1]) {
             request += "eyes = 'blue' and ";
         }
-        if(this.eyes[2]) {
+        if(eyes[2]) {
             request += "eyes = 'brown' and ";
         }
-        if(this.eyes[3]) {
+        if(eyes[3]) {
             request += "eyes = 'green' and ";
         }
         // Test de la même localite
-        if(this.samePlace) {
+        if(samePlace) {
             request = request + "place = " + this.placeStr + " and ";
         }
 
@@ -273,7 +239,7 @@ public class User
         request = request + "" + this.ageMin + " < ((JulianDay('now')) - (julianday(birthday))/365,25) < " + this.ageMax;
         // Test du genre et de la sexualite
         char sexe = (this.genderStr).charAt(0);
-        char pref = (this.orientationStr).charAt(0);
+        char pref = (this.orientationStr).charAt(0);//Homme, Femme ou Bi
         if(pref != 'B') {
             request += "gender = '" + pref + "' and ";
         }
