@@ -27,28 +27,28 @@ public class Friends
      */
 
     public Friends(String listOwnerStr, boolean alreadyCreated, Context context){
-     if(alreadyCreated){
-         this.listOwnerStr = listOwnerStr;
-         this.friendsListStr = null;
-         this.recFriendsRequestsStr = null;
-         this.recFriendsRequestsStr = null;
-     }
-     else{
-         FriendshipManager fM = new FriendshipManager(context);
-         fM.open();
-         this.listOwnerStr = listOwnerStr;
-         this.friendsListStr= fM.getFriendsStr(listOwnerStr);
-         this.recFriendsRequestsStr= new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
-         this.sentFriendsRequestsStr = new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
-         fM.close();
-     }
+        if(alreadyCreated){
+            this.listOwnerStr = listOwnerStr;
+            this.friendsListStr = null;
+            this.recFriendsRequestsStr = null;
+            this.recFriendsRequestsStr = null;
+        }
+        else{
+            FriendshipManager fM = new FriendshipManager(context);
+            fM.open();
+            this.listOwnerStr = listOwnerStr;
+            this.friendsListStr= fM.getFriendsStr(listOwnerStr);
+            this.recFriendsRequestsStr= new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
+            this.sentFriendsRequestsStr = new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
+            fM.close();
+        }
 
     }
     public Friends(){}
 
     public boolean sendFriendRequest(String target, Context context){ //sends true if worked, sends false if it was already a friend
         if(sentFriendsRequestsStr.contains(target)){
-        return false;
+            return false;
         }
         sentFriendsRequestsStr.add(target);
         FriendshipManager fM = new FriendshipManager(context);
@@ -108,5 +108,33 @@ public class Friends
         return friendsListUsr;
     }
 
+    public ArrayList<User> getFriendsUsr(Context context) {
+        UserManager uM = new UserManager(context);
+        ArrayList<User> FrUsr = new ArrayList();
+        for(int i = 0;i<friendsListStr.size();i++) {
+            FrUsr.add(i,uM.getUserStr(friendsListStr.get(i)));
+        }
+        return FrUsr;
+    }
+
+    public ArrayList<User> getSentFriendsRequestsUsr(Context context) {
+        UserManager uM = new UserManager(context);
+        ArrayList<User> sentFrReqUsr = new ArrayList();
+        for(int i = 0;i<sentFriendsRequestsStr.size();i++) {
+            sentFrReqUsr.add(i,uM.getUserStr(sentFriendsRequestsStr.get(i)));
+        }
+        return sentFrReqUsr;
+    }
+
+    public ArrayList<User> getRecFriendsRequestsUsr(Context context) {
+        UserManager uM = new UserManager(context);
+        ArrayList<User> recFrReqUsr = new ArrayList();
+        for(int i = 0;i<recFriendsRequestsStr.size();i++) {
+            recFrReqUsr.add(i,uM.getUserStr(recFriendsRequestsStr.get(i)));
+        }
+        return recFrReqUsr;
+    }
 
 }
+
+    
