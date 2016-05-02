@@ -70,7 +70,7 @@ public class User
         {return false;}
         User user = (User) o;
         if (user.loginStr == this.loginStr){
-        return true;}
+            return true;}
         return false;
     }
     public void updateDatabase(Context context){
@@ -227,6 +227,59 @@ public class User
 
     public Friends getFriends() {
         return friends;
+    }
+
+    /**
+     * Cree le string de la requete XML d'un user pour sa recherche par rapport a ses preferences.
+     * @return string pour la requete XML par rapport a ses preferences
+     */
+    public String makePersonalRequest() {
+        String request = "SELECT login FROM person WHERE " ;
+        // Test de la couleur des cheveux.
+        if(this.hair[0]) {
+            request += "hair = 'black' and ";
+        }
+        if(this.hair[1]) {
+            request += "hair = 'blond' and ";
+        }
+        if(this.hair[2]) {
+            request += "hair = 'brown' and ";
+        }
+        if(this.hair[3]) {
+            request += "hair = 'other' and ";
+        }
+        if(this.hair[4]) {
+            request += "hair = 'red' and ";
+        }
+        // Test de la couleur des yeux.
+        if(this.eyes[0]) {
+            request += "eyes = 'black' and ";
+        }
+        if(this.eyes[1]) {
+            request += "eyes = 'blue' and ";
+        }
+        if(this.eyes[2]) {
+            request += "eyes = 'brown' and ";
+        }
+        if(this.eyes[3]) {
+            request += "eyes = 'green' and ";
+        }
+        // Test de la même localite
+        if(this.samePlace) {
+            request = request + "place = " + this.placeStr + " and ";
+        }
+
+        // Test de l'age
+        request = request + "" + this.ageMin + " < ((JulianDay('now')) - (julianday(birthday))/365,25) < " + this.ageMax;
+        // Test du genre et de la sexualite
+        char sexe = (this.genderStr).charAt(0);
+        char pref = (this.orientationStr).charAt(0);
+        if(pref != 'B') {
+            request += "gender = '" + pref + "' and ";
+        }
+        request += "(orientation = 'B' or orientation = '" + sexe + "')";
+
+        return request;
     }
 
 }
