@@ -68,6 +68,17 @@ public class FriendshipManager {
         return db.delete(TABLE_FRIENDSHIP, where, whereArgs);
     }
 
+    public String getChatHistory(User user, User otherUser) {
+        Cursor c = db.rawQuery("SELECT chat FROM "+TABLE_FRIENDSHIP+" WHERE (("
+                +FRIENDSHIP_LOGIN1+" = "+user.getLoginStr()+" AND "+ FRIENDSHIP_LOGIN2+" = "+otherUser.getLoginStr()+") OR ("
+                +FRIENDSHIP_LOGIN2+" = "+user.getLoginStr()+" AND "+ FRIENDSHIP_LOGIN1+" = "+otherUser.getLoginStr()+")) AND "
+                +FRIENDSHIP_CHAT+" != 'null'",null);
+        if(c.moveToFirst()) {
+            return c.getString(c.getColumnIndex(FRIENDSHIP_CHAT));
+        }
+        return null;
+    }
+    
     public Friendship getFriendshipStr(String login1, String login2){
         Friendship f=new Friendship();
 
