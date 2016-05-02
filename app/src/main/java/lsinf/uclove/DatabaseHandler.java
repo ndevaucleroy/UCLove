@@ -15,12 +15,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static DatabaseHandler sInstance;
    
    //Drop Table
-    public static final String PERSON_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_PERSON + ";";
-    public static final String SCORE_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_SCORE + ";";
-    public static final String ALBUM_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_ALBUM + ";";
-    public static final String FRIENDSHIP_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_FRIENDSHIP + ";";
-    public static final String RENDEZVOUS_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_RENDEZVOUS + ";";
-    public static final String AVAILABILITY_TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_AVAILABILITY + ";";
+    public static final String PERSON_TABLE_DROP = "DROP TABLE IF EXISTS " + PersonManager.TABLE_PERSON + ";";
+    public static final String SCORE_TABLE_DROP = "DROP TABLE IF EXISTS " + ScoreManager.TABLE_SCORE + ";";
+    public static final String ALBUM_TABLE_DROP = "DROP TABLE IF EXISTS " + AlbumManager.TABLE_ALBUM + ";";
+    public static final String FRIENDSHIP_TABLE_DROP = "DROP TABLE IF EXISTS " + FriendshipManager.TABLE_FRIENDSHIP + ";";
+    public static final String RENDEZVOUS_TABLE_DROP = "DROP TABLE IF EXISTS " + RendezVousManager.TABLE_RENDEZVOUS + ";";
+    public static final String AVAILABILITY_TABLE_DROP = "DROP TABLE IF EXISTS " + AvailibilityManager.TABLE_AVAILABILITY + ";";
 
     public static synchronized DatabaseHandler getInstance(Context context) {
         if (sInstance == null) {
