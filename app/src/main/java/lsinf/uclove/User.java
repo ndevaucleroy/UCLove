@@ -282,19 +282,22 @@ public class User
         return request;
     }
     
-    	public String birthYear(){
-		String s=this.getBirthdayStr();
-		return s.substring(0,4);
-	}
-
-	public String birthMonth(){
-		String s=this.getBirthdayStr();
-		return s.substring(5,7);
-	}
-
-	public String birthDay(){
-		String s=this.getBirthdayStr();
-		return s.substring(8);
-	}
+    // Retourne le nombre correspondant au mois de type "January" ou "February"
+        public static String monthToInt(String mois) {
+            String ret = null;
+            if(mois.equals("January")) {ret = "01";}
+            else if(mois.equals("February")) {ret = "02";}
+            else if(mois.equals("March")) {ret = "03";}
+            else if(mois.equals("April")) {ret = "04";}
+            else if(mois.equals("May")) {ret = "05";}
+            else if(mois.equals("June")) {ret = "06";}
+            else if(mois.equals("July")) {ret = "07";}
+            else if(mois.equals("August")) {ret = "08";}
+            else if(mois.equals("September")) {ret = "09";}
+            else if(mois.equals("October")) {ret = "10";}
+            else if(mois.equals("November")) {ret = "11";}
+            else if(mois.equals("December")) {ret = "12";}
+            return ret;
+        }
 
 }
