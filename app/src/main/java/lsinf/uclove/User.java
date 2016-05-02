@@ -206,7 +206,7 @@ public class User
             request += "hair = 'black' and ";
         }
         if(hair[1]) {
-            request += "hair = 'blond' and ";
+            request += "hair = 'blonde' and ";
         }
         if(hair[2]) {
             request += "hair = 'brown' and ";
