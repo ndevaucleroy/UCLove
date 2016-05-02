@@ -49,7 +49,7 @@ public class Favorite{
         return min;
     }
 
-    public static Favorite intToFav(int n){
+    public Favorite intToFav(int n){
         int maxI=n>>>21;
         int minI=(n<<11)>>>21;
         int placeI=(n<<22)>>>31;
@@ -85,7 +85,7 @@ public class Favorite{
         return fav;
     }
 
-    public static int favToInt(Favorite fav){
+    public int favToInt(Favorite fav){
         int code=0;
         boolean[] hair=fav.getHair();
         boolean[] eyes=fav.getEyes();
