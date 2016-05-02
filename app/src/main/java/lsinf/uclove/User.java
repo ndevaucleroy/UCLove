@@ -281,5 +281,20 @@ public class User
 
         return request;
     }
+    
+    	public String birthYear(){
+		String s=this.getBirthdayStr();
+		return s.substring(0,4);
+	}
+
+	public String birthMonth(){
+		String s=this.getBirthdayStr();
+		return s.substring(5,7);
+	}
+
+	public String birthDay(){
+		String s=this.getBirthdayStr();
+		return s.substring(8);
+	}
 
 }
