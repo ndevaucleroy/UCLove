@@ -43,8 +43,8 @@ public class UserManager {
                     PERSON_PASSWORD + " TEXT not null, " +
                     PERSON_DESCRIPTION + " TEXT not null, " +
                     PERSON_GENDER + " TEXT not null, " +
-                    PERSON_ORIENTATION + " TEXT not null" + 
-                    PERSON_FAVORITE + "INTEGER not null);";
+                    PERSON_ORIENTATION + " TEXT not null " + 
+                    PERSON_FAVORITE + " INTEGER not null);";
                 
 
     private DatabaseHandler maBaseSQLite;
