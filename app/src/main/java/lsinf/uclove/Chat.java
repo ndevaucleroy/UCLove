@@ -22,19 +22,17 @@ public class Chat
         this.friend1 = friend1;
         this.friend2 = friend2;
         this.chatHistory = chatHistory;
-        DatabaseHandler.createChat(this);
     }
 
     public Chat(String friend1, String friend2) {
         this.friend1 = friend1;
         this.friend2 = friend2;
-        this.chatHistory = DatabaseHandler.getChatHistory(this);
     }
 
-    public User getFriend1() {
+    public String getFriend1() {
         return friend1;
     }
-    public User getFriend2() {
+    public String getFriend2() {
         return friend2;
     }
 
@@ -45,12 +43,10 @@ public class Chat
 
     public void setChatHistory(String chatHistory) {
         this.chatHistory = chatHistory;
-        DatabaseHandler.setChatHistory(this);
     }
     public void sendMessage(String message, String friend){
         //TODO fucking date !
         this.chatHistory += "b;" + friend + "c;" + message.replaceAll(";", "/;")
-        + "d;";
-        DatabaseHandler.setChatHistory(this);
+                + "d;";
     }
 }
