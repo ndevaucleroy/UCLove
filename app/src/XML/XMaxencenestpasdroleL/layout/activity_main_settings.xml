@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#ffc1c1"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:background="#ff5555"
+        android:orientation="horizontal"
+        android:layout_weight="0.1">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent"
+            android:id="@+id/YesOrNo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/FriendsRequests"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent"
+            android:id="@+id/Friends"
+            android:scaleType="fitCenter"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
+            android:layout_gravity="top" />
+
+        <ImageButton
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/Profile"
+            android:src="@drawable/beer"
+            android:layout_weight="0.2"
+            android:layout_gravity="top"/>
+
+        <ImageButton
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="#ffc1c1"
+            android:id="@+id/Settings"
+            android:src="@drawable/beer"
+            android:scaleType="fitCenter"
+            android:layout_weight="0.2"
+            android:layout_gravity="top" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="Settings"
+        android:textAllCaps="true"
+        android:textSize="45sp"
+        android:id="@+id/headText"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2667"
+            android:layout_margin="10dp"
+            android:id="@+id/profileSettings"
+            android:text="Profile Settings"
+            android:background="#e36899"
+            android:textSize="25sp"/>
+        <Button
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2667"
+        android:background="#e36899"
+        android:layout_margin="10dp"
+
+        android:id="@+id/researchSettings"
+        android:text="Research Settings"
+        android:textSize="25sp"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2667"
+            android:background="#e36899"
+            android:id="@+id/appSettings"
+            android:text="App Settings"
+            android:layout_margin="10dp"
+            android:textSize="25sp"/>
+
+        </LinearLayout>
