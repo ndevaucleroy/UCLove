@@ -1,38 +1,41 @@
 package lsinf1225.uclove;
 
-/**
+/** 
  * Created by Guillaume on 29/04/16.
  */
 public class Score {
 
-    private User loginGive;
-    private User loginGet;
+    private String loginGive;
+    private String loginGet;
     private int quotation;
 
     // Constructeur
-    public Score(User loginGive, User loginGet, int quotation) {
+    public Score(String loginGive, String loginGet, int quotation) {
         this.loginGive=loginGive;
         this.loginGet=loginGet;
         this.quotation=quotation;
     }
 
-    public User getLoginGive() {
+    public Score() {
+    }
+
+    public String getLoginGive() {
         return loginGive;
     }
 
-    public void setLoginGive(User loginGive) {
+    public void setLoginGive(String loginGive) {
         this.loginGive = loginGive;
     }
 
-    public User getLoginGet() {
+    public String getLoginGet() {
         return loginGet;
     }
 
-    public void setLoginGet(User loginGet) {
+    public void setLoginGet(String loginGet) {
         this.loginGet = loginGet;
     }
 
-    public int getQuotation(int quotation) {
+    public int getQuotation() {
         return quotation;
     }
 
