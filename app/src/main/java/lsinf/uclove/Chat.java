@@ -1,4 +1,8 @@
 package lsinf1225.uclove;
+import android.content.Context;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 /**
@@ -18,15 +22,25 @@ public class Chat
      * Constructor for objects of class Chat
      */
     public Chat(String friend1, String friend2, String chatHistory){
-        // initialise instance variables
+        // initialise instance variables, mais on est pas sensé utiliser mais
         this.friend1 = friend1;
         this.friend2 = friend2;
         this.chatHistory = chatHistory;
     }
 
-    public Chat(String friend1, String friend2) {
+    public Chat(String friend1, String friend2, Context context) {
         this.friend1 = friend1;
         this.friend2 = friend2;
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        String string = fM.getFriendshipStr(friend1, friend2).getChat();
+        if(string == null){
+
+            string = fM.getFriendshipStr(friend2, friend1).getChat();
+            this.friend1 = friend2;
+            this.friend2 = friend1;
+        }
+        fM.close();
     }
 
     public String getFriend1() {
@@ -43,10 +57,17 @@ public class Chat
 
     public void setChatHistory(String chatHistory) {
         this.chatHistory = chatHistory;
+
     }
-    public void sendMessage(String message, String friend){
+    public void sendMessage(String message, String friend, Context context){
         //TODO fucking date !
-        this.chatHistory += "b;" + friend + "c;" + message.replaceAll(";", "/;")
-                + "d;";
+        String trueMsg = chatHistory + '['+ friend + ',';
+        Calendar calendar = GregorianCalendar.getInstance();
+        trueMsg+=calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+"] "+message+"\n";
+        FriendshipManager fM = new FriendshipManager(context);
+        fM.open();
+        Friendship bla = new Friendship(friend1, friend2, chatHistory);
+        fM.modFriendship(bla);
+        fM.close();
     }
 }
