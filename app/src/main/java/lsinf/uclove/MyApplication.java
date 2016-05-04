@@ -1,6 +1,7 @@
 package lsinf1225.uclove;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -18,10 +19,21 @@ public class MyApplication extends Application {
     private static User otherUserR;
     private static User userToDisplay;
     private static User userToDisplayR;
-    private static ArrayList<User> matchingUsers = User.Research.getMatchingUsers(user);
-    private static ArrayList<User> friendRequestList = Friends.getFriendRequest(user);
+    private static ArrayList<User> matchingUsers;
+    private static ArrayList<User> friendRequestList;
     private static int positionInMatchingUsers = 0;
     private static int positionInFriendRequestList = 0;
+    
+    public static void setMatchingUsers(User user, Context context) {
+        UserManager uM = new UserManager(context);
+        uM.open();
+        matchingUsers = uM.generateListResearch(user, context);
+        uM.close();
+    }
+    
+    public static void setfriendRequestList(User user, Context context) {
+        friendRequestList = user.getFriends().getRecFriendsRequestsUsr(context);
+    }
 
     public static User getUserToDisplayR() {
         return userToDisplayR;
