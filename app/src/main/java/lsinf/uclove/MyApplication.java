@@ -18,7 +18,7 @@ public class MyApplication extends Application {
     private static User otherUserR;
     private static User userToDisplay;
     private static User userToDisplayR;
-    private static ArrayList<User> matchingUsers = Research.getMatchingUsers(user);
+    private static ArrayList<User> matchingUsers = User.Research.getMatchingUsers(user);
     private static ArrayList<User> friendRequestList = Friends.getFriendRequest(user);
     private static int positionInMatchingUsers = 0;
     private static int positionInFriendRequestList = 0;
