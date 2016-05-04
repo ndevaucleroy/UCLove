@@ -21,7 +21,7 @@ public class User
      */
     public User(String passwordStr, String loginStr, String  firstNameStr,
                 String  nameStr, String  placeStr, String birthdayStr, String languageStr,
-                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, Favorite favorite)//constructeur pour un tout nouvel utilisateur
+                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, Favorite favorite,Context context)//constructeur pour un tout nouvel utilisateur
     {
         this.passwordStr = passwordStr;
         this.loginStr = loginStr;
