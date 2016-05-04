@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class ScoreManager {
     //Key Score Name
     public static final String TABLE_PERSON = "person";
-    public static final String TABLE_SCORE = "album";
+    public static final String TABLE_SCORE = "score";
     public static final String SCORE_LOGINGET = "login";
     public static final String SCORE_LOGINGIVE = "picture";
     public static final String SCORE_QUOTATION = "quotation";
