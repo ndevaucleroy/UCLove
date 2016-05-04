@@ -82,7 +82,7 @@ public class ScoreManager {
     public Score getScoreStr(String loginGive, String loginGet) {
         // Retourne le score dont le donneur est loginGive et le receveur est loginGet
 
-        Score a=new Score("","",0);
+        Score a=new Score();
 
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_SCORE+" WHERE "+SCORE_LOGINGIVE+"="+loginGive+" and "+SCORE_LOGINGET+"="+loginGet, null);
         if (c.moveToFirst()) {
