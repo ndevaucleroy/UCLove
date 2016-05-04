@@ -22,8 +22,8 @@ public class RendezVousManager {
     //Rendezvous
     public static final String RENDEZVOUS_TABLE_CREATE =
             "CREATE TABLE " + TABLE_RENDEZVOUS + " (" +
-                    RENDEZVOUS_LOGIN1 + " TEXT not null references" + TABLE_PERSON + ", " +
-                    RENDEZVOUS_LOGIN2 + " TEXT not null references" + TABLE_PERSON + ", " +
+                    RENDEZVOUS_LOGIN1 + " TEXT not null references " + TABLE_PERSON + ", " +
+                    RENDEZVOUS_LOGIN2 + " TEXT not null references " + TABLE_PERSON + ", " +
                     RENDEZVOUS_MEETING + " TEXT not null, PRIMARY KEY (" +
                     RENDEZVOUS_LOGIN1 + ", " + RENDEZVOUS_LOGIN2 + "), FOREIGN KEY(" +
                     RENDEZVOUS_LOGIN1 + ", " + RENDEZVOUS_MEETING + ") references " + TABLE_AVAILABILITY + ", FOREIGN KEY(" +
