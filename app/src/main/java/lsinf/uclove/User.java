@@ -15,18 +15,13 @@ public class User
     private String loginStr, firstNameStr, nameStr, placeStr, birthdayStr, languageStr,
             hairStr, eyesStr, descriptionStr, genderStr, orientationStr;
     private Friends friends;
-
-    boolean[] hair;
-    boolean[] eyes;
-    boolean samePlace;
-    int ageMin, ageMax;
+    private Favorite favorite;
     /**
      * Constructor for objects of class User
      */
     public User(String passwordStr, String loginStr, String  firstNameStr,
                 String  nameStr, String  placeStr, String birthdayStr, String languageStr,
-                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, boolean[] hair, boolean[] eyes, boolean samePlace,
-                int ageMin, int ageMax, Context context)//constructeur pour un tout nouvel utilisateur
+                String hairStr, String  eyesStr, String descriptionStr, String genderStr, String  orientationStr, Favorite favorite)//constructeur pour un tout nouvel utilisateur
     {
         this.passwordStr = passwordStr;
         this.loginStr = loginStr;
@@ -41,11 +36,7 @@ public class User
         this.genderStr = genderStr;
         this.orientationStr = orientationStr;
         this.friends = new Friends(this.loginStr, true, context);
-        this.hair = hair;
-        this.eyes = eyes;
-        this.samePlace = samePlace;
-        this.ageMin = ageMin;
-        this.ageMax = ageMax;
+        this.favorite=favorite;
         UserManager uM = new UserManager(context);
         uM.open();
         uM.addUser(this);
@@ -79,24 +70,13 @@ public class User
         uM.modUser(this);
         uM.close();
     }
-    public void setHair(boolean[] hair) {
-        this.hair = hair;
+    
+    public Favorite getFavorite(){
+    	return this.favorite;
     }
-
-    public void setEyes(boolean[] eyes) {
-        this.eyes = eyes;
-    }
-
-    public void setSamePlace(boolean samePlace) {
-        this.samePlace = samePlace;
-    }
-
-    public void setAgeMin(int ageMin) {
-        this.ageMin = ageMin;
-    }
-
-    public void setAgeMax(int ageMax) {
-        this.ageMax = ageMax;
+    
+    public void setFavorite(Favorite f){
+    	this.favorite=f;
     }
 
     public void setFriends(Friends friends) {
@@ -234,6 +214,11 @@ public class User
      * @return string pour la requete XML par rapport a ses preferences
      */
     public String makePersonalRequest() {
+    	boolean[] hair=this.favorite.getHair();
+    	boolean[] eyes=this.favorite.getEyes();
+    	boolean samePlace=this.favorite.getPlace();
+    	int ageMin=this.favorite.getMin();
+    	int ageMax=this.favorite.getMax();
         String request = "SELECT login FROM person WHERE " ;
         // Test de la couleur des cheveux.
         if(this.hair[0]) {
