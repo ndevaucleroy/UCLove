@@ -18,6 +18,20 @@ public class Favorite{
         this.max=max;
     }
 
+    public Favorite() {
+    }
+
+    public Favorite(int i) {
+        Favorite fav;
+        fav = intToFav(i);
+        this.hair=fav.getHair();
+        this.eyes=fav.getEyes();
+        this.min=fav.getMin();
+        this.max=fav.getMax();
+        this.place=fav.getPlace();
+
+    }
+
     public void setHair(boolean[] b){
         hair=b;
     }
@@ -85,13 +99,13 @@ public class Favorite{
         return fav;
     }
 
-    public int favToInt(Favorite fav){
+    public int favToInt(){
         int code=0;
-        boolean[] hair=fav.getHair();
-        boolean[] eyes=fav.getEyes();
-        boolean place=fav.getPlace();
-        int max=fav.getMax();
-        int min=fav.getMin();
+        boolean[] hair=this.getHair();
+        boolean[] eyes=this.getEyes();
+        boolean place=this.getPlace();
+        int max=this.getMax();
+        int min=this.getMin();
         for(int i=0;i<hair.length;i++){
             if(hair[i])
                 code+=Math.pow(2,i);
