@@ -70,13 +70,13 @@ public class User
         uM.modUser(this);
         uM.close();
     }
-    
+
     public Favorite getFavorite(){
-    	return this.favorite;
+        return this.favorite;
     }
-    
+
     public void setFavorite(Favorite f){
-    	this.favorite=f;
+        this.favorite=f;
     }
 
     public void setFriends(Friends friends) {
@@ -84,23 +84,23 @@ public class User
     }
 
     public boolean[] getHair() {
-        return hair;
+        return favorite.getHair();
     }
 
     public boolean[] getEyes() {
-        return eyes;
+        return favorite.getEyes();
     }
 
     public boolean getSamePlace() {
-        return samePlace;
+        return favorite.getPlace();
     }
 
     public int getAgeMin() {
-        return ageMin;
+        return favorite.getMin();
     }
 
     public int getAgeMax() {
-        return ageMax;
+        return favorite.getMax();
     }
 
     public static boolean isLoginAvailable(String username){
@@ -214,48 +214,48 @@ public class User
      * @return string pour la requete XML par rapport a ses preferences
      */
     public String makePersonalRequest() {
-    	boolean[] hair=this.favorite.getHair();
-    	boolean[] eyes=this.favorite.getEyes();
-    	boolean samePlace=this.favorite.getPlace();
-    	int ageMin=this.favorite.getMin();
-    	int ageMax=this.favorite.getMax();
+        boolean[] hair=this.favorite.getHair();
+        boolean[] eyes=this.favorite.getEyes();
+        boolean samePlace=this.favorite.getPlace();
+        int ageMin=this.favorite.getMin();
+        int ageMax=this.favorite.getMax();
         String request = "SELECT login FROM person WHERE " ;
         // Test de la couleur des cheveux.
-        if(this.hair[0]) {
+        if(hair[0]) {
             request += "hair = 'black' and ";
         }
-        if(this.hair[1]) {
+        if(hair[1]) {
             request += "hair = 'blond' and ";
         }
-        if(this.hair[2]) {
+        if(hair[2]) {
             request += "hair = 'brown' and ";
         }
-        if(this.hair[3]) {
+        if(hair[3]) {
             request += "hair = 'other' and ";
         }
-        if(this.hair[4]) {
+        if(hair[4]) {
             request += "hair = 'red' and ";
         }
         // Test de la couleur des yeux.
-        if(this.eyes[0]) {
+        if(eyes[0]) {
             request += "eyes = 'black' and ";
         }
-        if(this.eyes[1]) {
+        if(eyes[1]) {
             request += "eyes = 'blue' and ";
         }
-        if(this.eyes[2]) {
+        if(eyes[2]) {
             request += "eyes = 'brown' and ";
         }
-        if(this.eyes[3]) {
+        if(eyes[3]) {
             request += "eyes = 'green' and ";
         }
         // Test de la même localite
-        if(this.samePlace) {
+        if(samePlace) {
             request = request + "place = " + this.placeStr + " and ";
         }
 
         // Test de l'age
-        request = request + "" + this.ageMin + " < ((JulianDay('now')) - (julianday(birthday))/365,25) < " + this.ageMax;
+        request = request + "" + ageMin + " < ((JulianDay('now')) - (julianday(birthday))/365,25) < " + ageMax;
         // Test du genre et de la sexualite
         char sexe = (this.genderStr).charAt(0);
         char pref = (this.orientationStr).charAt(0);
@@ -266,37 +266,37 @@ public class User
 
         return request;
     }
-    
+
     // Retourne le nombre correspondant au mois de type "January" ou "February"
-        public static String monthToInt(String mois) {
-            String ret = null;
-            if(mois.equals("January")) {ret = "01";}
-            else if(mois.equals("February")) {ret = "02";}
-            else if(mois.equals("March")) {ret = "03";}
-            else if(mois.equals("April")) {ret = "04";}
-            else if(mois.equals("May")) {ret = "05";}
-            else if(mois.equals("June")) {ret = "06";}
-            else if(mois.equals("July")) {ret = "07";}
-            else if(mois.equals("August")) {ret = "08";}
-            else if(mois.equals("September")) {ret = "09";}
-            else if(mois.equals("October")) {ret = "10";}
-            else if(mois.equals("November")) {ret = "11";}
-            else if(mois.equals("December")) {ret = "12";}
-            return ret;
-        }
-    
+    public static String monthToInt(String mois) {
+        String ret = null;
+        if(mois.equals("January")) {ret = "01";}
+        else if(mois.equals("February")) {ret = "02";}
+        else if(mois.equals("March")) {ret = "03";}
+        else if(mois.equals("April")) {ret = "04";}
+        else if(mois.equals("May")) {ret = "05";}
+        else if(mois.equals("June")) {ret = "06";}
+        else if(mois.equals("July")) {ret = "07";}
+        else if(mois.equals("August")) {ret = "08";}
+        else if(mois.equals("September")) {ret = "09";}
+        else if(mois.equals("October")) {ret = "10";}
+        else if(mois.equals("November")) {ret = "11";}
+        else if(mois.equals("December")) {ret = "12";}
+        return ret;
+    }
+
     public String birthYear(){
-		String s=this.getBirthdayStr();
-		return s.substring(0,4);
-	}
+        String s=this.getBirthdayStr();
+        return s.substring(0,4);
+    }
 
-	public String birthMonth(){
-		String s=this.getBirthdayStr();
-		return s.substring(5,7);
-	}
+    public String birthMonth(){
+        String s=this.getBirthdayStr();
+        return s.substring(5,7);
+    }
 
-	public String birthDay(){
-		String s=this.getBirthdayStr();
-		return s.substring(8);
-	}
+    public String birthDay(){
+        String s=this.getBirthdayStr();
+        return s.substring(8);
+    }
 }
