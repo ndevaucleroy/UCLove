@@ -38,8 +38,8 @@ public class Friends
             fM.open();
             this.listOwnerStr = listOwnerStr;
             this.friendsListStr= fM.getFriendsStr(listOwnerStr);
-            this.recFriendsRequestsStr= new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
-            this.sentFriendsRequestsStr = new ArrayList<String>(Arrays.asList(DatabaseHandler.getRecFriendsRequests(listOwnerStr)));
+            this.recFriendsRequestsStr= new ArrayList<String>(Arrays.asList(this.getRecFriendsRequestsStr()));
+            this.sentFriendsRequestsStr = new ArrayList<String>(Arrays.asList(this.getRecFriendsRequestsStr()));
             fM.close();
         }
 
@@ -100,10 +100,10 @@ public class Friends
         return (String[])sentFriendsRequestsStr.toArray();
     }
 
-    public User[] getFriendsListUsr() { //on load les users
+    public User[] getFriendsListUsr(Context context) { //on load les users
         User []friendsListUsr = new User[friendsListStr.size()];
         for(int i = 0;i < friendsListStr.size();i++){
-            friendsListUsr[i] = new User(friendsListStr.get(i));
+            friendsListUsr[i] = new User(friendsListStr.get(i), context);
         }
         return friendsListUsr;
     }
@@ -137,4 +137,3 @@ public class Friends
 
 }
 
-    
