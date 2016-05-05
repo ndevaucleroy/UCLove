@@ -20,7 +20,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String ALBUM_TABLE_DROP = "DROP TABLE IF EXISTS " + AlbumManager.TABLE_ALBUM + ";";
     public static final String FRIENDSHIP_TABLE_DROP = "DROP TABLE IF EXISTS " + FriendshipManager.TABLE_FRIENDSHIP + ";";
     public static final String RENDEZVOUS_TABLE_DROP = "DROP TABLE IF EXISTS " + RendezVousManager.TABLE_RENDEZVOUS + ";";
-    public static final String AVAILABILITY_TABLE_DROP = "DROP TABLE IF EXISTS " + AvailibilityManager.TABLE_AVAILABILITY + ";";
+    public static final String AVAILABILITY_TABLE_DROP = "DROP TABLE IF EXISTS " + AvailabilityManager.TABLE_AVAILABILITY + ";";
 
     public static synchronized DatabaseHandler getInstance(Context context) {
         if (sInstance == null) {
@@ -39,7 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(AlbumManager.ALBUM_TABLE_CREATE);
         db.execSQL(FriendshipManager.FRIENDSHIP_TABLE_CREATE);
         db.execSQL(RendezVousManager.RENDEZVOUS_TABLE_CREATE);
-        db.execSQL(AvailabiltyManager.AVAILABILITY_TABLE_CREATE);
+        db.execSQL(AvailabilityManager.AVAILABILITY_TABLE_CREATE);
         
         db.execSQL("INSERT INTO person VALUES(\"Maasym\",\"Anvers\",\"Gabeline\",\"Hadagonde\",\"1990-6-25\",\"English\",\"red\",\"blue\",\"xXx_Maasym_xXx\",\"Euh...flemme... prout d'ecrire une description\",\"F\",\"B\",147911853)");
         db.execSQL("INSERT INTO person VALUES(\"Mabsuthat\",\"Bruxelles\",\"Gabrienne\",\"Haddée\",\"1997-11-16\",\"English\",\"red\",\"green\",\"xXx_Mabsuthat_xXx\",\"Euh...flemme... prout d'ecrire une description\",\"M\",\"M\",123202182)");
