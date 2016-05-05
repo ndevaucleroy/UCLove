@@ -132,7 +132,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO person VALUES(\"Murfach\",\"Bruxelles\",\"Gémélinie\",\"Hélanise\",\"1929-8-22\",\"Français\",\"brown\",\"green\",\"password\",\"Euh...flemme... prout d'ecrire une description\",\"M\",\"F\",231927590)");
         db.execSQL("INSERT INTO person VALUES(\"Murzim\",\"Namur\",\"Gémélise\",\"Hélaria\",\"1952-0-5\",\"English\",\"red\",\"green\",\"password\",\"Euh...flemme... prout d'ecrire une description\",\"M\",\"F\",188840946)");
         db.execSQL("INSERT INTO person VALUES(\"Muscida\",\"Namur\",\"Gémila\",\"Hélarie\",\"1953-7-12\",\"Français\",\"brown\",\"brown\",\"password\",\"Euh...flemme... prout d'ecrire une description\",\"M\",\"F\",238937317)");
-
+        
+        
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Markab\",\"null\")");
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Masym\",\"null\")");
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Meboula\",\"null\")");
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Media\",\"BlablbalalalezklnCanailleo,fzlkne\")");
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Men\",\"BlablbalalalezklnCanailleo,fzlkne\")");
+        db.execSQL("INSERT INTO friendship VALUES(\"Maïa\",\"Menka\",\"BlablbalalalezklnCanailleo,fzlkne\")");
     }
 
     @Override
